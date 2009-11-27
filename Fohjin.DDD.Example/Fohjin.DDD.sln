@@ -43,6 +43,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalAccess", "ExternalA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DomainServices", "DomainServices", "{922FDB17-4224-4D46-824C-E685B70B5B62}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fohjin.DDD.Configuration.Castle", "Fohjin.DDD.Configuration.Castle\Fohjin.DDD.Configuration.Castle.csproj", "{F3D1746A-8E06-41F2-A2AE-2524DF41BEDC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -113,6 +115,10 @@ Global
 		{C386E309-3714-428D-8156-EE943C28ED23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C386E309-3714-428D-8156-EE943C28ED23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C386E309-3714-428D-8156-EE943C28ED23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3D1746A-8E06-41F2-A2AE-2524DF41BEDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3D1746A-8E06-41F2-A2AE-2524DF41BEDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3D1746A-8E06-41F2-A2AE-2524DF41BEDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3D1746A-8E06-41F2-A2AE-2524DF41BEDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
