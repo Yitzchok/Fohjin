@@ -1,32 +1,37 @@
+using Castle.MicroKernel.Registration;
+using Castle.Windsor;
 using Fohjin.DDD.Configuration;
-using Fohjin.DDD.Services;
-using StructureMap;
+using Fohjin.DDD.Configuration.Castle;
 
 namespace Fohjin.DDD.BankApplication
 {
     public class ApplicationBootStrapper
     {
-        public void BootStrapTheApplication()
-        {
-            DomainDatabaseBootStrapper.BootStrap();
-            ReportingDatabaseBootStrapper.BootStrap();
-
-            ObjectFactory.Initialize(x =>
-            {
-                x.AddRegistry<ApplicationRegistry>();
-                x.AddRegistry<DomainRegistry>();
-                x.AddRegistry<ReportingRegistry>();
-                x.AddRegistry<ServicesRegister>();
-            });
-            ObjectFactory.AssertConfigurationIsValid();
-
-            RegisterCommandHandlersInMessageRouter.BootStrap();
-            RegisterEventHandlersInMessageRouter.BootStrap();
-        }
-
         public static void BootStrap()
         {
-            new ApplicationBootStrapper().BootStrapTheApplication();
+
+        }
+
+        public void BootstrapWithStructureMap()
+        {
+            new StructureMapBootstraper().BootStrapTheApplication(new StructureMapApplicationRegistry());
+
+        }
+
+        public void BootstrapWithCastle()
+        {
+            IWindsorContainer container = new WindsorContainer();
+
+            new CastleBootStraper().BootStrapTheApplication(container);
+
+            new CastleApplicationRegistry(container);
+        }
+    }
+
+    public class BootstrapNHibernate
+    {
+        public BootstrapNHibernate()
+        {
         }
     }
 }

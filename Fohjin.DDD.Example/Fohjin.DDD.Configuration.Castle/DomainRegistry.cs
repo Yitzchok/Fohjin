@@ -12,7 +12,7 @@ namespace Fohjin.DDD.Configuration.Castle
 {
     public class DomainRegistry
     {
-        public DomainRegistry(WindsorContainer container)
+        public DomainRegistry(IWindsorContainer container)
         {
             container.Register(
                Component.For<IBus>().ImplementedBy<DirectBus>().LifeStyle.PerThread,

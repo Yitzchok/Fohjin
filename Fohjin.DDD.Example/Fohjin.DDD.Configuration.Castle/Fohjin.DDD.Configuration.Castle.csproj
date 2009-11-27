@@ -83,6 +83,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CastleBootStraper.cs" />
     <Compile Include="CommandHandlerHelper.cs" />
     <Compile Include="EventHandlerHelper.cs" />
     <Compile Include="RegisterCommandHandlersInMessageRouter.cs" />
