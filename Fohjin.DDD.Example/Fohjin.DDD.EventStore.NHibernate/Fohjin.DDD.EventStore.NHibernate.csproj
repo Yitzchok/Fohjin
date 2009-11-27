@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0E86D5C6-929D-4304-A00D-ADC9FB2AFE77}</ProjectGuid>
+    <ProjectGuid>{C386E309-3714-428D-8156-EE943C28ED23}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Fohjin.DDD.Reporting</RootNamespace>
-    <AssemblyName>Fohjin.DDD.Reporting</AssemblyName>
+    <RootNamespace>Fohjin.DDD.EventStore.NHibernate</RootNamespace>
+    <AssemblyName>Fohjin.DDD.EventStore.NHibernate</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
@@ -52,9 +52,21 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentNHibernate, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\nhibernate\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Lib\nhibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Linq, Version=1.1.0.1001, Culture=neutral, PublicKeyToken=444cf6a87fdab271, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\nhibernate\NHibernate.Linq.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -75,20 +87,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Infrastructure\NHibernateReportingRepository.cs" />
-    <Compile Include="Infrastructure\SqlDeleteBuilder.cs" />
-    <Compile Include="Infrastructure\SQLiteReportingRepository.cs" />
-    <Compile Include="Infrastructure\SqlCreateBuilder.cs" />
-    <Compile Include="Infrastructure\SqlInsertBuilder.cs" />
-    <Compile Include="Infrastructure\SqlUpdateBuilder.cs" />
-    <Compile Include="IReportingRepository.cs" />
+    <Compile Include="ConcurrencyViolationException.cs" />
+    <Compile Include="EventProviders.cs" />
+    <Compile Include="Events.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Infrastructure\SqlSelectBuilder.cs" />
+    <Compile Include="NHibernateDomainEventStorage.cs" />
+    <Compile Include="SnapShots.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Fohjin.DDD.Reporting.Dto\Fohjin.DDD.Reporting.Dto.csproj">
-      <Project>{44666AF0-AC7A-486E-AD1F-49FD0573ED43}</Project>
-      <Name>Fohjin.DDD.Reporting.Dto</Name>
+    <ProjectReference Include="..\Fohjin.DDD.EventStore\Fohjin.DDD.EventStore.csproj">
+      <Project>{318F1FE0-DA43-4A02-9956-361C9FE96915}</Project>
+      <Name>Fohjin.DDD.EventStore</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
