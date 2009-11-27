@@ -1,16 +1,20 @@
 using System;
 using System.Collections.Generic;
+using Fohjin.DDD.Reporting.Dto.Base.Model;
 
 namespace Fohjin.DDD.Reporting.Dto
 {
-    public class AccountDetailsReport
+    public class AccountDetailsReport : Entity
     {
-        public Guid Id { get; private set; }
-        public Guid ClientReportId { get; private set; }
-        public IEnumerable<LedgerReport> Ledgers { get; private set; }
-        public string AccountName { get; private set; }
-        public decimal Balance { get; set; }
-        public string AccountNumber { get; private set; }
+        protected AccountDetailsReport()
+        {
+        }
+
+        public virtual Guid ClientReportId { get; private set; }
+        public virtual IEnumerable<LedgerReport> Ledgers { get; private set; }
+        public virtual string AccountName { get; private set; }
+        public virtual decimal Balance { get; set; }
+        public virtual string AccountNumber { get; private set; }
 
         public AccountDetailsReport(Guid id, Guid clientId, string accountName, decimal balance, string accountNumber)
         {

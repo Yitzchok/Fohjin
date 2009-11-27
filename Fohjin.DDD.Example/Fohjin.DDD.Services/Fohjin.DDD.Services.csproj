@@ -86,6 +86,10 @@
       <Project>{58D61FA0-D67F-4D72-81EA-2D709356AF95}</Project>
       <Name>Fohjin.DDD.Commands</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Fohjin.DDD.Reporting.Dto.Base\Fohjin.DDD.Reporting.Dto.Base.csproj">
+      <Project>{5C5F8A06-742D-46DF-9CF3-78EBC2CFDFFB}</Project>
+      <Name>Fohjin.DDD.Reporting.Dto.Base</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Fohjin.DDD.Reporting.Dto\Fohjin.DDD.Reporting.Dto.csproj">
       <Project>{44666AF0-AC7A-486E-AD1F-49FD0573ED43}</Project>
       <Name>Fohjin.DDD.Reporting.Dto</Name>

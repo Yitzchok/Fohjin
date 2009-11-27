@@ -27,7 +27,10 @@ namespace Fohjin.DDD.Configuration.Castle
                Component.For<IUnitOfWork>().Forward<IEventStoreUnitOfWork<IDomainEvent>>(),
 
                Component.For<IDomainRepository<IDomainEvent>>().ImplementedBy<DomainRepository<IDomainEvent>>()
-               .LifeStyle.Singleton);
+               .LifeStyle.Singleton//BUG: this has to be per thread I think
+
+               );
+
         }
     }
 }

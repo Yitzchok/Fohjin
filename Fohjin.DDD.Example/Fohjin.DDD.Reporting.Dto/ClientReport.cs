@@ -1,11 +1,15 @@
 using System;
+using Fohjin.DDD.Reporting.Dto.Base.Model;
 
 namespace Fohjin.DDD.Reporting.Dto
 {
-    public class ClientReport
+    public class ClientReport : Entity
     {
-        public Guid Id { get; private set; }
-        public string Name { get; private set; }
+        protected ClientReport()
+        {
+        }
+
+        public virtual string Name { get; set; }
 
         public ClientReport(Guid id, string name)
         {

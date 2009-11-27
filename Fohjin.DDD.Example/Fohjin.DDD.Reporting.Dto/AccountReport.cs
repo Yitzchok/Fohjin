@@ -1,13 +1,17 @@
 using System;
+using Fohjin.DDD.Reporting.Dto.Base.Model;
 
 namespace Fohjin.DDD.Reporting.Dto
 {
-    public class AccountReport
+    public class AccountReport : Entity
     {
-        public Guid Id { get; private set; }
-        public Guid ClientDetailsReportId { get; private set; }
-        public string AccountName { get; private set; }
-        public string AccountNumber { get; private set; }
+        protected AccountReport()
+        {
+        }
+
+        public virtual Guid ClientDetailsReportId { get; private set; }
+        public virtual string AccountName { get; private set; }
+        public virtual string AccountNumber { get; private set; }
 
         public AccountReport(Guid id, Guid clientDetailsId, string accountName, string accountNumber)
         {

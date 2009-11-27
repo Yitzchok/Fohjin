@@ -1,13 +1,17 @@
 using System;
+using Fohjin.DDD.Reporting.Dto.Base.Model;
 
 namespace Fohjin.DDD.Reporting.Dto
 {
-    public class LedgerReport
+    public class LedgerReport : Entity
     {
-        public Guid Id { get; private set; }
-        public Guid AccountDetailsReportId { get; private set; }
-        public string Action { get; private set; }
-        public decimal Amount { get; private set; }
+        protected LedgerReport()
+        {
+        }
+
+        public virtual Guid AccountDetailsReportId { get; private set; }
+        public virtual string Action { get; private set; }
+        public virtual decimal Amount { get; private set; }
 
         public LedgerReport(Guid id, Guid accountDetailsId, string action, decimal amount)
         {

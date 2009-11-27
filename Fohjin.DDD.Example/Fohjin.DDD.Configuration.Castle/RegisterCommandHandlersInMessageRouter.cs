@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Reflection;
 using Fohjin.DDD.Bus.Direct;
 using Fohjin.DDD.CommandHandlers;
+using Fohjin.DDD.EventStore;
+using Fohjin.DDD.EventStore.Storage;
 using Microsoft.Practices.ServiceLocation;
 
 namespace Fohjin.DDD.Configuration.Castle
@@ -59,7 +61,11 @@ namespace Fohjin.DDD.Configuration.Castle
             where TCommand : class 
             where TCommandHandler : ICommandHandler<TCommand>
         {
-            return command => ServiceLocator.Current.GetInstance<TransactionHandler<TCommand, TCommandHandler>>().Execute(command, commandHandler);
+            return command => new TransactionHandler<TCommand, TCommandHandler>(
+                            ServiceLocator.Current.GetInstance<IEventStoreUnitOfWork<IDomainEvent>>()
+                      ).Execute(command, commandHandler);
+
+            //return command => ServiceLocator.Current.GetInstance<TransactionHandler<TCommand, TCommandHandler>>().Execute(command, commandHandler);
         }
     }
 }

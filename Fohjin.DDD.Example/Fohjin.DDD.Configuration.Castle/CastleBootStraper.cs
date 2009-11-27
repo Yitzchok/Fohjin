@@ -1,5 +1,7 @@
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
+using Fohjin.DDD.CommandHandlers;
+using Fohjin.DDD.EventHandlers;
 using Fohjin.DDD.Services;
 
 namespace Fohjin.DDD.Configuration.Castle
@@ -13,6 +15,16 @@ namespace Fohjin.DDD.Configuration.Castle
 
             new DomainRegistry(container);
             new ReportingRegistry(container);
+
+            container.Register(AllTypes.Of(typeof(ICommandHandler<>))
+               .FromAssembly(typeof(CreateClientCommandHandler).Assembly)
+               .Where(t => !t.IsAbstract || !t.IsInterface)
+               .Configure(c => c.Named(c.Name)));
+
+            container.Register(AllTypes.Of(typeof(IEventHandler<>))
+                .FromAssembly(typeof(ClientCreatedEventHandler).Assembly)
+                .Where(t => !t.IsAbstract || !t.IsInterface)
+                .Configure(c => c.Named(c.Name)));
 
 
             container.Register(

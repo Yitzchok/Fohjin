@@ -92,6 +92,12 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Fohjin.DDD.Reporting.Dto.Base\Fohjin.DDD.Reporting.Dto.Base.csproj">
+      <Project>{5C5F8A06-742D-46DF-9CF3-78EBC2CFDFFB}</Project>
+      <Name>Fohjin.DDD.Reporting.Dto.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

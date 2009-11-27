@@ -118,6 +118,10 @@
       <Project>{CFB4C037-822D-470E-8A01-832957D193C9}</Project>
       <Name>Fohjin.DDD.Events</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Fohjin.DDD.Reporting.Dto.Base\Fohjin.DDD.Reporting.Dto.Base.csproj">
+      <Project>{5C5F8A06-742D-46DF-9CF3-78EBC2CFDFFB}</Project>
+      <Name>Fohjin.DDD.Reporting.Dto.Base</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Fohjin.DDD.Reporting.Dto\Fohjin.DDD.Reporting.Dto.csproj">
       <Project>{44666AF0-AC7A-486E-AD1F-49FD0573ED43}</Project>
       <Name>Fohjin.DDD.Reporting.Dto</Name>

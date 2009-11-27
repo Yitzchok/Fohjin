@@ -68,6 +68,30 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Lib\castle\Castle.Windsor.dll</HintPath>
     </Reference>
+    <Reference Include="FluentNHibernate, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\nhibernate\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\nhibernate\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\nhibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\nhibernate\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Linq, Version=1.1.0.1001, Culture=neutral, PublicKeyToken=444cf6a87fdab271, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\nhibernate\NHibernate.Linq.dll</HintPath>
+    </Reference>
     <Reference Include="StructureMap, Version=2.5.3.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Lib\StructureMap\StructureMap.dll</HintPath>
@@ -79,6 +103,7 @@
     <Reference Include="System.Data.SQLite, Version=1.0.65.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Lib\sqlite\bin\x64\System.Data.SQLite.DLL</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -95,6 +120,7 @@
   <ItemGroup>
     <Compile Include="ApplicationBootStrapper.cs" />
     <Compile Include="ApplicationRegistry.cs" />
+    <Compile Include="BootstrapNHibernate.cs" />
     <Compile Include="Presenters\AccountDetailsPresenter.cs" />
     <Compile Include="Presenters\ClientDetailsPresenter.cs" />
     <Compile Include="Presenters\ClientSearchFormPresenter.cs" />
@@ -104,6 +130,7 @@
     <Compile Include="Presenters\IPopupPresenter.cs" />
     <Compile Include="Presenters\IPresenter.cs" />
     <Compile Include="Presenters\PopupPresenter.cs" />
+    <Compile Include="StructureMapServiceLocator.cs" />
     <Compile Include="Views\AccountDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +194,7 @@
     <Compile Include="Views\Popup.Designer.cs">
       <DependentUpon>Popup.cs</DependentUpon>
     </Compile>
+    <Compile Include="WindsorServiceLocatorAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fohjin.DDD.Bus\Fohjin.DDD.Bus.csproj">
@@ -193,9 +221,17 @@
       <Project>{2A96D452-7D1D-4118-B3D4-8EF543D1FBCB}</Project>
       <Name>Fohjin.DDD.EventHandlers</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Fohjin.DDD.EventStore.NHibernate\Fohjin.DDD.EventStore.NHibernate.csproj">
+      <Project>{C386E309-3714-428D-8156-EE943C28ED23}</Project>
+      <Name>Fohjin.DDD.EventStore.NHibernate</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Fohjin.DDD.EventStore\Fohjin.DDD.EventStore.csproj">
       <Project>{318F1FE0-DA43-4A02-9956-361C9FE96915}</Project>
       <Name>Fohjin.DDD.EventStore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fohjin.DDD.Reporting.Dto.Base\Fohjin.DDD.Reporting.Dto.Base.csproj">
+      <Project>{5C5F8A06-742D-46DF-9CF3-78EBC2CFDFFB}</Project>
+      <Name>Fohjin.DDD.Reporting.Dto.Base</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fohjin.DDD.Reporting.Dto\Fohjin.DDD.Reporting.Dto.csproj">
       <Project>{44666AF0-AC7A-486E-AD1F-49FD0573ED43}</Project>

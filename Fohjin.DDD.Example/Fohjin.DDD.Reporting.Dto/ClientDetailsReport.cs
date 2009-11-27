@@ -1,19 +1,23 @@
 using System;
 using System.Collections.Generic;
+using Fohjin.DDD.Reporting.Dto.Base.Model;
 
 namespace Fohjin.DDD.Reporting.Dto
 {
-    public class ClientDetailsReport
+    public class ClientDetailsReport : Entity
     {
-        public Guid Id { get; private set; }
-        public IEnumerable<AccountReport> Accounts { get; private set; }
-        public IEnumerable<ClosedAccountReport> ClosedAccounts { get; private set; }
-        public string ClientName { get; private set; }
-        public string Street { get; private set; }
-        public string StreetNumber { get; private set; }
-        public string PostalCode { get; private set; }
-        public string City { get; private set; }
-        public string PhoneNumber { get; set; }
+        protected ClientDetailsReport()
+        {
+        }
+
+        public virtual IEnumerable<AccountReport> Accounts { get; private set; }
+        public virtual IEnumerable<ClosedAccountReport> ClosedAccounts { get; private set; }
+        public virtual string ClientName { get; private set; }
+        public virtual string Street { get; private set; }
+        public virtual string StreetNumber { get; private set; }
+        public virtual string PostalCode { get; private set; }
+        public virtual string City { get; private set; }
+        public virtual string PhoneNumber { get; set; }
 
         public ClientDetailsReport(Guid id, string clientName, string street, string streetNumber, string postalCode, string city, string phoneNumber)
         {

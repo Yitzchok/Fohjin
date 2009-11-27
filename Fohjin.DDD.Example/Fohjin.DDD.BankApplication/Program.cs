@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Fohjin.DDD.BankApplication.Presenters;
+using Microsoft.Practices.ServiceLocation;
 using StructureMap;
 
 namespace Fohjin.DDD.BankApplication
@@ -15,7 +16,7 @@ namespace Fohjin.DDD.BankApplication
         {
             ApplicationBootStrapper.BootStrap();
 
-            var clientSearchFormPresenter = ObjectFactory.GetInstance<IClientSearchFormPresenter>();
+            var clientSearchFormPresenter = ServiceLocator.Current.GetInstance<IClientSearchFormPresenter>();
 
             Application.EnableVisualStyles();
 
